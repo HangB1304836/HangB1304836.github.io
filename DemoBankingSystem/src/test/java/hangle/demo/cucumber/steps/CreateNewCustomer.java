@@ -1,10 +1,12 @@
 package hangle.demo.cucumber.steps;
 
-import org.junit.Assert;
+import org.apache.commons.lang3.RandomStringUtils;
 
 import hangle.demo.cucumber.steps.serenity.CreateNewCustomerSteps;
 import hangle.demo.cucumber.steps.serenity.LoginSteps;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
 
 public class CreateNewCustomer {
@@ -19,7 +21,7 @@ public class CreateNewCustomer {
 	private String state = "Phu Nhuan";
 	private String pin = "000000";
 	private String phonenumber = "0123456789";
-	private String email = "ltthang2692@gmail.com";
+	private String email = RandomStringUtils.randomAlphabetic(10) + "@gmail.com";
 	private String userPwd = "123456";
 
 	@Steps
@@ -32,6 +34,16 @@ public class CreateNewCustomer {
 	public void openAddNewCustomerPage() {
 		loginSteps.open_home_page();
 		loginSteps.login(userId, pwd);
+		createNewCustomerStep.openNewCustomerPage();
+	}
+	
+	@When("Create New Customer")
+	public void createNewCustomer() {
 		createNewCustomerStep.createCustomerPage(username, gender, date, addr, city, state, pin, phonenumber, email, userPwd);
+	}
+	
+	@Then("^Customer created successfully")
+	public void VerifyInfoDetailCustomer(){
+		createNewCustomerStep.verifyInfoCust(username, phonenumber, email);
 	}
 }

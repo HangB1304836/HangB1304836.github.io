@@ -28,7 +28,7 @@ public class LoginHomePage {
 
 	@Then("^Login success$")
 	public void loginSuccess() {
-		Assert.assertEquals(url, loginSteps.currentUrl());
+		loginSteps.verifyLoginSuccess(url);
 	}
 
 }

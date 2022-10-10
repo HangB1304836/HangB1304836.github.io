@@ -1,5 +1,6 @@
 package hangle.demo.cucumber.steps.serenity;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import hangle.demo.cucumber.page.HomePage;
 import net.thucydides.core.steps.ScenarioSteps;
@@ -23,5 +24,9 @@ public class LoginSteps extends ScenarioSteps {
 			url = driver.getCurrentUrl();
 		}
 		return url;
+	}
+	
+	public void verifyLoginSuccess(String urlExpected) {
+		Assert.assertEquals(urlExpected, this.currentUrl());
 	}
 }

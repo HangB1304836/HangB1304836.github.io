@@ -8,5 +8,5 @@ Scenario: Login Home Page
     @1
     Scenario: Verify new customer can be created
       Given Open New Customer Page
-      #When Login Guru page
-      #Then Login success
+      When Create New Customer
+      Then Customer created successfully

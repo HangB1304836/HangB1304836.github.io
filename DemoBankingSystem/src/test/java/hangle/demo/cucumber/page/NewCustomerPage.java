@@ -1,5 +1,8 @@
 package hangle.demo.cucumber.page;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -34,6 +37,15 @@ public class NewCustomerPage extends PageObject {
 	WebElement password;
 	@FindBy(name = "sub")
 	WebElement sub;
+	@FindBy(xpath = "//*[@id=\"customer\"]/tbody/tr[4]/td[2]")
+	WebElement customerId;
+	
+	@FindBy(xpath = "//*[@id=\"customer\"]/tbody/tr[5]/td[2]")
+	WebElement customerName;
+	@FindBy(xpath = "//*[@id=\"customer\"]/tbody/tr[12]/td[2]")
+	WebElement phonenumber;
+	@FindBy(xpath = "//*[@id=\"customer\"]/tbody/tr[13]/td[2]")
+	WebElement email;
 	
 	public void openNewCustomerPage() {
 		newCustomerPage.click();
@@ -55,5 +67,13 @@ public class NewCustomerPage extends PageObject {
 		password.sendKeys(userPwd);
 		//submit
 		sub.click();	
+	}
+	
+	public List<Object> getInfoNewCustomer() {
+		String customerID = customerId.getText();
+		String customerNameActual = customerName.getText();
+		String phoneActual = phonenumber.getText();
+		String emailActual = email.getText();
+		return Arrays.asList(customerID,customerNameActual,phoneActual,emailActual);
 	}
 }
