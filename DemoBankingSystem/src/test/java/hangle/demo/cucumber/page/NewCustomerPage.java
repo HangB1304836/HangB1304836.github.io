@@ -18,18 +18,42 @@ public class NewCustomerPage extends PageObject {
 	WebElement isFemale;
 	@FindBy(id = "dob")
 	WebElement selectDate;
-
+	@FindBy(name = "addr")
+	WebElement address;
+	@FindBy(name = "city")
+	WebElement addrCity;
+	@FindBy(name = "state")
+	WebElement addrState;
+	@FindBy(name = "pinno")
+	WebElement pinno;
+	@FindBy(name = "telephoneno")
+	WebElement telephoneno;
+	@FindBy(name = "emailid")
+	WebElement emailid;
+	@FindBy(name = "password")
+	WebElement password;
+	@FindBy(name = "sub")
+	WebElement sub;
+	
 	public void openNewCustomerPage() {
 		newCustomerPage.click();
 	}
 	
-	public void createNewCustomer(String username, String gender) {
+	public void createNewCustomer(String username, String gender, String date, String addr, String city, String state, String pin, String phonenumber, String email, String userPwd) {
 		name.sendKeys(username);
 		if (gender.equalsIgnoreCase("male")){
 			isMale.click();
-		}else
+		}else	
 			isFemale.click();
-		//select date
-		selectDate.click();
+		selectDate.sendKeys(date);
+		address.sendKeys(addr);
+		addrCity.sendKeys(city);
+		addrState.sendKeys(state);
+		pinno.sendKeys(pin);
+		telephoneno.sendKeys(phonenumber);
+		emailid.sendKeys(email);
+		password.sendKeys(userPwd);
+		//submit
+		sub.click();	
 	}
 }

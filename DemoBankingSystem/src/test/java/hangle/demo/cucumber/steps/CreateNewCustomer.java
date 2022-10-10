@@ -13,6 +13,14 @@ public class CreateNewCustomer {
 	private String url = "https://demo.guru99.com/v4/manager/Managerhomepage.php";
 	private String username = "Hang Le";
 	private String gender = "Femail";
+	private String date = "09092000";
+	private String addr = "Le Van Sy";
+	private String city = "Ho Chi Minh";
+	private String state = "Phu Nhuan";
+	private String pin = "000000";
+	private String phonenumber = "0123456789";
+	private String email = "ltthang2692@gmail.com";
+	private String userPwd = "123456";
 
 	@Steps
 	LoginSteps loginSteps;
@@ -24,6 +32,6 @@ public class CreateNewCustomer {
 	public void openAddNewCustomerPage() {
 		loginSteps.open_home_page();
 		loginSteps.login(userId, pwd);
-		createNewCustomerStep.createCustomerPage(username, gender);
+		createNewCustomerStep.createCustomerPage(username, gender, date, addr, city, state, pin, phonenumber, email, userPwd);
 	}
 }
