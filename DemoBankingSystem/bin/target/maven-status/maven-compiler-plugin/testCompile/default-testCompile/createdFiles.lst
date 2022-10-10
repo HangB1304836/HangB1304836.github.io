@@ -1,0 +1,4 @@
+hangle\demo\cucumber\steps\serenity\CreateCustomerSerenity.class
+hangle\demo\cucumber\page\HomePage.class
+hangle\demo\cucumber\EntryPoint.class
+hangle\demo\cucumber\steps\CreateNewCustomerSteps.class
